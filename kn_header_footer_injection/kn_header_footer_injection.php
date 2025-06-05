@@ -1,21 +1,25 @@
 <?php
 /**
  * Header & Footer Code Injection
- * https://arafatkn.com
- * https://github.com/arafatkn
+ * https://mypanelhost.com
+ * 
+ * Permite inyectar código JS, CSS o HTML en el <head>, tras abrir <body> y antes de cerrar </body>
+ * en el área de clientes de WHMCS.
+ * 
+ * Autor: MyPanelHost LLC
  */
 if (!defined("WHMCS")) {
     die("This file cannot be accessed directly");
 }
 
 function kn_header_footer_injection_config() {
-	return array(
-    	"name" => "Header & Footer Code Injection",
-    	"description" => "A module designed to inject static code (js, css, html) to header & footer of clientarea.",
-    	"version" => "0.1",
-    	"author" => "<a href='https://github.com/arafatkn'>Arafat Islam</a>",
-    	"language" => "english",
-    	"fields" => array(
+    return array(
+        "name" => "Header & Footer Code Injection",
+        "description" => "A module designed to inject static code (js, css, html) to header & footer of clientarea.",
+        "version" => "0.1",
+        "author" => "MyPanelHost LLC",
+        "language" => "english",
+        "fields" => array(
             "head" => array (
                 "FriendlyName" => "Code in Head (between <head></head> tag i.e. JS, CSS, Meta, OG etc)",
                 "Type" => "textarea",
@@ -63,4 +67,9 @@ function kn_header_footer_injection_config() {
             )
         )
     );
+}
+
+// Incluir los hooks si existe el archivo
+if (file_exists(__DIR__ . '/hooks.php')) {
+    require_once __DIR__ . '/hooks.php';
 }
