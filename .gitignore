@@ -1,2 +1,4 @@
-.ideavo/project
+.env
+.idea/
+.ideavo/
 *.log
